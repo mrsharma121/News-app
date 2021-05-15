@@ -1,0 +1,37 @@
+.feedback{
+    border: 2px solid red;    
+    width: 80vw;
+    height: 100vh;
+    position: absolute;
+    top: 0%;
+}
+
+.nav-feedback{
+    border: 2px solid rosybrown;
+    position: absolute;
+    top: 30%;
+}
+
+.form-active{
+    display: flex;
+    border: 2px solid yellowgreen;
+    height: 100vh;
+    transition: 1000ms;
+    flex-direction: column;
+    margin-left: 26%;
+    position: fixed;
+    width: 54vw;
+    left: 0%;
+}
+
+.form-inactive{
+    position: fixed;
+    transition: 1500ms;
+    left: -50%;
+}
+
+input{
+    display: flex;
+    flex-direction: column;
+
+}
