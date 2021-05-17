@@ -2,4 +2,21 @@
   box-sizing: border-box;
   margin: 0%;
   padding: 0%;
+  /* background-color: aliceblue; */
 }
+
+html{
+  background-color: aliceblue;
+  position: relative;
+    z-index: -10;
+}
+body{
+  position: relative;
+    z-index: -9;
+}
+
+#root{
+  position: relative;
+    z-index: -8;
+}
+

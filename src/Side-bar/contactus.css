@@ -1,0 +1,19 @@
+.reader{
+    /* border: 2px solid goldenrod; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* margin-left: 2%; */
+    width: 14vw;
+    position: fixed;
+    left: 5%;
+    /* top: 1%; */
+    height: 19%;
+    background-color: white;
+    box-shadow: 7px 7px 14px black, -11px -12px 18px whitesmoke;
+    border-radius: 12%;
+
+    
+    z-index: 1;
+}

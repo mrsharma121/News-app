@@ -1,0 +1,29 @@
+.email-error{
+    color: red;
+    position: relative;
+    left: 66%;
+    bottom: 2rem;
+}
+
+.number-error{
+    color: red;
+    position: relative;
+    left: 66%;
+    bottom: 2rem;
+}
+
+#userEmail{
+    height: 5vh;
+}
+
+#userNumber{
+    height: 5vh;
+
+}
+
+.validator{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+}

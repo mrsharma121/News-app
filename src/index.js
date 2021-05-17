@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-// import News from './News';
-import ContactUs from './Side-bar/ContactUs';
+import App from './App';
+
+
 
 
 ReactDOM.render(
-    <ContactUs />,
+    <App />,
   document.getElementById('root')
 );
 

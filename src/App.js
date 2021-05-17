@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
-// import axios from 'axios';
 import './App.css';
-import News from './News';
 import {Pagination} from './Pagination';
 import {Posts} from './Posts';
+import ContactUs from './Side-bar/ContactUs';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(35);
   const [note, setnote] = useState([])
   const [summary, setSummary] = useState([])
   const [date, setDate] = useState()
@@ -22,9 +21,13 @@ function App() {
         const Title = x.map(({ title }) => title);
         const Summary = x.map(({summary}) => summary);
         setSummary(Summary)
-        setnote(Title)
+        setnote(x)
         setDate(res.data["last-modified"])
-        // console.log(x)
+        const arr = []
+        for (var a in x ){
+        arr.push(x[a])
+      }
+      console.log(date)
     }
     FetchAPI();
 },[])
@@ -33,35 +36,78 @@ function App() {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = note.slice(indexOfFirstPost, indexOfLastPost);
-  const CurrentSummary = summary.slice(indexOfFirstPost, indexOfLastPost);
 
-  // console.log(currentPosts)
 
     // Change page
     const paginate = pageNumber => setCurrentPage(pageNumber);
+    const onDelete = (id) =>{
+      setnote((oldData)=>
+      oldData.filter((curData,indx)=>{
+        return indx !== id; 
+      }
+      
+       ) )
+    }
+    
+
+  const [toggle, settoggle] = useState(false)
+    
+
+    const onToggle = () =>{
+        settoggle(!toggle)
+    }
 
 
   return (
     < >
-        
-        <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={note.length}
-        paginate={paginate}
+      <ContactUs toggle = {toggle}
+      onToggle = {onToggle}
       />
-        {/* <News
-        note = {note}
-        setnote = {setnote}
-        setSummary = {setSummary}
-        setDate = {setDate}
-        summary = {summary}
-        date = {date}
-        /> */}
+      {toggle?  
+        <div className = "posts-block" > 
+        {
+          currentPosts.map((value, id) =>{
+            return(
         <Posts
-        currentPosts = {currentPosts}
-        CurrentSummary = {CurrentSummary}
-        
+        id = {id}
+        title = {value.title}
+        summary = {value.summary}
+        date = {date}
+        link = {value.link}
+        onDelete = {onDelete}
+        toggle = {toggle}
+
         />
+        
+          )})
+}</div> 
+      :
+
+      <div className = "posts-row" > 
+      {
+        currentPosts.map((value, id) =>{
+          return(
+      <Posts
+      id = {id}
+      title = {value.title}
+      summary = {value.summary}
+      link = {value.link}
+      onDelete = {onDelete}
+      toggle = {toggle}
+
+      />
+      
+        )})
+}</div> 
+
+
+}
+      <Pagination
+      postsPerPage={postsPerPage}
+      totalPosts={note.length}
+      paginate={paginate}
+      currentPage = {currentPage}
+    />
         
     </>
   );

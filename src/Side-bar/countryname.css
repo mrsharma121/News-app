@@ -1,0 +1,15 @@
+.suggestion{
+    height: 10vh;
+    overflow-y: scroll;
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    flex-direction: column;
+}
+
+.country-input{
+    width: 21vw;
+    margin-top: 2%;
+    height: 5vh;
+    box-shadow: 3px 3px 6px grey;
+}

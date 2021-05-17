@@ -1,33 +1,40 @@
 import React, {useState} from 'react'
 import "./news.css"
 
-export const Posts = ({currentPosts, CurrentSummary}) => {
+export const Posts = ({date, title, link, onDelete, id, toggle}) => {
 
-    const [expand, setExpand] = useState(false)
+    const [expand, setExpand] = useState(true)
     const ExpandIt = () =>{
-        return(
             setExpand(!expand)
-        )
+            // console.log(value.target.id)
+    }
+console.log(toggle)
+    const DeletePost = () =>{
+        onDelete(id)
     }
 
     return (
-        <>
-    {expand?
         
-        currentPosts.map((value, id) => {
-            return(
-          <div key={id} className='container' onClick  = {ExpandIt}>
-            {value}
+        <div  className= {toggle? "a-block" : "a-row"  } >
+    {expand?
+              <>
+          <div   className= {toggle? "container-title-block" : "container-title-row"  } onClick  = {ExpandIt}>
+            <span className = {toggle? "content-block" : "content-row"  } > {title}  </span> <br/>
+            <i className = "date"  >{date}</i>
           </div>
-        )})
+            <button className = {toggle? "delete-btn-block"  : "delete-btn-row"}  onClick = {DeletePost} >&#215;</button>
+            </>
+        
         :
-        CurrentSummary.map((value, id) => {
-            return(
-          <div key={id} className='container' onClick  = {ExpandIt}>
-            {value}
+        
+          
+          <div  className='container-summary' onClick  = {ExpandIt}>
+            <iframe src = {link} height = "500" width = "1000"  className = "container-iframe" />
+
           </div>
-        )})
+
         }
-      </>
+        </div>
+      
     )
 }
