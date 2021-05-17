@@ -29,7 +29,7 @@ console.log(toggle)
         
           
           <div  className='container-summary' onClick  = {ExpandIt}>
-            <iframe src = {link} height = "500" width = "1000"  className = "container-iframe" />
+            <iframe title = "Tap in the blur region outside the news box to close this frame" src = {link} height = "500" width = "1000"  className = "container-iframe" />
 
           </div>
 

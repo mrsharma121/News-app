@@ -21,7 +21,9 @@ const ContactUs = ({toggle, onToggle}) => {
             toggle = {toggle}
             onToggle = {onToggle}
             />
-            <Feedback parentCallback={HideToggle} />
+            <Feedback parentCallback={HideToggle}
+            toggle = {toggle}
+            />
         </div>
     )
 }

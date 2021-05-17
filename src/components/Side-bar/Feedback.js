@@ -4,7 +4,7 @@ import CountryName from './CountryName';
 import Validator from './Validator';
 import database from '../Firebase';
 
-const Feedback = ({parentCallback}) => {
+const Feedback = ({parentCallback, toggle}) => {
     const [form, setform] = useState(false)
     const [Firstname, setfirstname] = useState("")
     const [lastname, setlastname] = useState("")
@@ -47,9 +47,9 @@ const Feedback = ({parentCallback}) => {
         <div className = {form? "feedback-without-toggle" : "feedback-with-toggle" } >
             <section className = {form? "nav-without-toogle" : "nav-with-toogle" } >
             <h3>Have a Feedback</h3>
-            <button className = {form? "contact-btn-red" : "contact-btn-green" } onClick = {Contact} >We're Listening</button>
+            <button className = {form? "contact-btn-red" : "contact-btn-green"  } onClick = {Contact} >We're Listening</button>
             </section>
-            <section className = {form? "form-active" : "form-inactive" }  >
+            <section className ={toggle?  form? "form-active" : "form-inactive" : form? "form-active1" : "form-inactive" }  >
                <span 
                > <h3 className = "heading1" >Thank you so much for taking the time </h3> <br/>
                 <h4 className = "heading2" >Please Provide the below details </h4> <br/>

@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './toggle.css'
-import {Posts} from '../Posts';
 
 
 const Toggle = ({style, toggle, onToggle}) => {
 
-    const [togglecolor, settogglecolor] = useState(true)
-    console.log(toggle)
     return (
         <>
 

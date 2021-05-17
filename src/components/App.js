@@ -9,7 +9,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(35);
   const [note, setnote] = useState([])
-  const [summary, setSummary] = useState([])
   const [date, setDate] = useState()
 
 
@@ -18,16 +17,11 @@ function App() {
         const url = "https://api.first.org/data/v1/news";
         const res = await axios.get(url)
         const x =  res.data.data
-        const Title = x.map(({ title }) => title);
-        const Summary = x.map(({summary}) => summary);
-        setSummary(Summary)
+
         setnote(x)
         setDate(res.data["last-modified"])
-        const arr = []
-        for (var a in x ){
-        arr.push(x[a])
-      }
-      console.log(date)
+
+
     }
     FetchAPI();
 },[])
